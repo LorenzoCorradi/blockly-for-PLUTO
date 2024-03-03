@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This app illustrates how to use Blockly together with common programming tools like node/npm, webpack, typescript, eslint, and others. You can use it as the starting point for your own application and modify it as much as you'd like. It contains basic infrastructure for running, building, testing, etc. that you can use even if you don't understand how to configure the related tool yet. When your needs outgrow the functionality provided here, you can replace the provided configuration or tool with your own.
+Blockly is a library that uses graphical blocks to represent code and thus lets the user visually create a program. The goal of this project is to create an application based on blockly, that outputs PLUTO scripts instead of code. In particular, users can for example put blocks of commands (eg to do movement of our prototype rover) into a control logic, and then a corresponding PLUTO script will be generated.
 
 ## Quick Start for developing purpose
 
@@ -33,5 +33,9 @@ To run your app locally, run `npm run start` to run the development server. This
 
 To deploy your app so that others can use it, run `npm run build` to run a production build. This will bundle your code and minify it to reduce its size. You can then host the contents of the `dist` directory on a web server of your choosing.
 
-## Development explanation
+## Brief explanation of the workflow:
+The documentation regarding the creation of new languages is not entirely clear and comprehensive (https://github.com/google/blockly/issues/6992). However, it is possible to take inspiration from the languages already generated and refer to the Google codelab accessible from this link: https://blocklycodelabs.dev/codelabs/custom-generator/index.html . This codelab serves as the starting point for this project.
+To carry out the project, two fundamental steps are essentially required:
+- the creation of custom blocks, facilitated by the Blockly Developer Tools provided by Google (https://blockly-demo.appspot.com/static/demos/blockfactory/index.html).
+- the generation of code that allows generating PLUTO syntax from each block.
 
