@@ -34,8 +34,8 @@ To run your app locally, run `npm run start` to run the development server. This
 To deploy your app so that others can use it, run `npm run build` to run a production build. This will bundle your code and minify it to reduce its size. You can then host the contents of the `dist` directory on a web server of your choosing.
 
 ## Brief explanation of the workflow:
-The documentation regarding the creation of new languages is not entirely clear and comprehensive (https://github.com/google/blockly/issues/6992). However, it is possible to take inspiration from the languages already generated and refer to the [Google codelab](https://blocklycodelabs.dev/codelabs/custom-generator/index.html) accessible from this link: https://blocklycodelabs.dev/codelabs/custom-generator/index.html . This codelab serves as the starting point for this project.
+The documentation regarding the creation of new languages is not entirely clear and comprehensive (https://github.com/google/blockly/issues/6992). However, it is possible to take inspiration from the languages already generated and refer to the [Google codelab](https://blocklycodelabs.dev/codelabs/custom-generator/index.html) about the build of a custom generator. <ins> This codelab serves as the starting point for this project. </ins>
 To carry out the project, two fundamental steps are essentially required:
-- the creation of custom blocks, facilitated by the Blockly Developer Tools provided by Google (https://blockly-demo.appspot.com/static/demos/blockfactory/index.html).
+- the creation of custom blocks, facilitated by the [Blockly Developer Tools](https://blockly-demo.appspot.com/static/demos/blockfactory/index.html) provided by Google.
 - the generation of code that allows generating PLUTO syntax from each block.
 
