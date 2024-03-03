@@ -13,11 +13,10 @@ Blockly is a library that uses graphical blocks to represent code and thus lets 
 5. Run `npm run start` to run the development server and see the app in action.
 6. If you make any changes to the source code, just refresh the browser while the server is running to see them.
 
-## Have a look to the developed site
-You have two options:
-1. Download the /dist directory and open index.html with the browser.
-2. Go to https://blockly-415916.ew.r.appspot.com/, it's a simple flask server with a deploy of the project.
+### Serving
+To run your app locally, run `npm run start` to run the development server. This mode generates source maps and ingests the source maps created by Blockly, so that you can debug using unminified code.
 
+To deploy your app so that others can use it, run `npm run build` to run a production build. This will bundle your code and minify it to reduce its size. You can then host the contents of the `dist` directory on a web server of your choosing.
 
 ### Source Code
 - `index.html` contains the skeleton HTML for the page. This file is modified during the build to import the bundled source code output by webpack.
@@ -27,11 +26,10 @@ You have two options:
 - `blocks/pluto.js` contains the blocks for pluto scripts. 
 - `generators/pluto.js` contains the PLUTO generator for  any custom blocks created.
 
-## Serving
-
-To run your app locally, run `npm run start` to run the development server. This mode generates source maps and ingests the source maps created by Blockly, so that you can debug using unminified code.
-
-To deploy your app so that others can use it, run `npm run build` to run a production build. This will bundle your code and minify it to reduce its size. You can then host the contents of the `dist` directory on a web server of your choosing.
+## Have a look to the developed site
+You have two options:
+1. Download the /dist directory and open index.html with the browser.
+2. Go to https://blockly-415916.ew.r.appspot.com/, it's a simple flask server with a deploy of the project.
 
 ## Brief explanation of the workflow:
 The documentation regarding the creation of new languages is not entirely clear and comprehensive (https://github.com/google/blockly/issues/6992). However, it is possible to take inspiration from the languages already generated and refer to the [Google codelab](https://blocklycodelabs.dev/codelabs/custom-generator/index.html) about the build of a custom generator. <ins> This codelab serves as the starting point for this project. </ins>
