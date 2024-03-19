@@ -1,7 +1,6 @@
-import * as Blockly from 'blockly';
-
-export const plutoGenerator = new Blockly.Generator('JSON');
-
+const Blockly = require('blockly');
+const plutoGenerator = new Blockly.Generator('JSON');
+module.exports = { plutoGenerator};
 const Order = {
     ATOMIC: 0,
   };
@@ -9,6 +8,9 @@ const Order = {
 
   plutoGenerator.forBlock['logic_null'] = function(block) {
     return ['null', Order.ATOMIC];
+
+
+    
   };
 
   

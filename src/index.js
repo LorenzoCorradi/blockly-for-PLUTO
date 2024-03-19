@@ -7,6 +7,7 @@
 import * as Blockly from 'blockly';
 //import {blocks} from './blocks/text';
 
+
 import {blocks} from './blocks/pluto';
 //import {forBlock} from './generators/javascript';
 //import {javascriptGenerator} from 'blockly/javascript';
@@ -23,7 +24,22 @@ Blockly.common.defineBlocks(blocks);
 const codeDiv = document.getElementById('generatedCode').firstChild;
 //const outputDiv = document.getElementById('output');
 const blocklyDiv = document.getElementById('blocklyDiv');
-const ws = Blockly.inject(blocklyDiv, {toolbox});
+const ws = Blockly.inject(blocklyDiv, {renderer:'zelos', toolbox: toolbox,
+zoom:
+    {controls: false,
+     wheel: true,
+     startScale: 1.0,
+     maxScale: 3,
+     minScale: 0.3,
+     scaleSpeed: 1.2,
+     pinch: true},
+trashcan: true});
+//impedisci che anche il toolbox venga zoomato
+
+
+ws.setTheme(Blockly.Themes.Zelos);
+//usa zelos come render dei blocchi
+
 
 // This function resets the code and output divs, shows the
 // generated code from the workspace, and evals the code.
@@ -65,4 +81,25 @@ ws.addChangeListener((e) => {
     return;
   }
   runCode();
+});
+
+
+document.getElementById('undoButton').addEventListener('click', function() {
+  ws.undo(false);
+  
+});
+
+document.getElementById('redoButton').addEventListener('click', function() {
+  ws.undo(true);
+  
+});
+
+document.getElementById('zoomInButton').addEventListener('click', function() {
+  ws.zoomCenter(1);
+  
+});
+
+document.getElementById('zoomOutButton').addEventListener('click', function() {
+  ws.zoomCenter(-1);
+  
 });
