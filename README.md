@@ -10,8 +10,9 @@ Blockly is a library that uses graphical blocks to represent code and thus lets 
 2. Run `git clone https://github.com/LorenzoCorradi/blockly-for-PLUTO.git`
 3. Run `cd blockly-for-PLUTO`
 4. Run `npm install` to install the required dependencies.
-5. Run `npm run start` to run the development server and see the app in action.
-6. If you make any changes to the source code, just refresh the browser while the server is running to see them.
+5. Run `chmod u+x node_modules/.bin/webpack` if you are on a linux machine.
+6. Run `npm run start` to run the development server and see the app in action.
+7. If you make any changes to the source code, just refresh the browser while the server is running to see them.
 
 ### Serving
 To run your app locally, run `npm run start` to run the development server. This mode generates source maps and ingests the source maps created by Blockly, so that you can debug using unminified code.
