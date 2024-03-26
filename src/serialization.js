@@ -23,8 +23,9 @@ export const save = function(workspace) {
  */
 export const load = function(workspace) {
   const data = window.localStorage?.getItem(storageKey);
+  return;       //TODO: remove this line and check if a block si defined
   if (!data) return;
-
+  console.log(data);
   // Don't emit events during loading.
   Blockly.Events.disable();
   Blockly.serialization.workspaces.load(JSON.parse(data), workspace, false);

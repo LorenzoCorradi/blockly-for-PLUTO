@@ -3,6 +3,20 @@ export const toolbox = {
   "contents": [
     {
       "kind": "category",
+      "name": "Functions",
+      "custom": "PROCEDURE",
+      "contents": [
+        {
+          "kind": "block",
+          "type": "procedures_defnoreturn",
+          "hidden": "true"
+        },
+      
+      ]
+    },
+   
+    {
+      "kind": "category",
       "name": "Control",
       "colour": "210",
       
@@ -14,6 +28,10 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'wait'
+        },
+        {
+          'kind': 'block',
+          'type': 'custom'
         },
       ]
     },

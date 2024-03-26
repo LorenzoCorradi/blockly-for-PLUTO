@@ -8,12 +8,37 @@ const Order = {
 
   plutoGenerator.forBlock['logic_null'] = function(block) {
     return ['null', Order.ATOMIC];
-
-
-    
+  };
+  plutoGenerator.forBlock['testtt'] = function(block) {
+    return '';
+  };
+  plutoGenerator.forBlock['procedures_defnoreturn'] = function(block) {
+    return "";
+  };
+  plutoGenerator.forBlock['procedures_callnoreturn'] = function(block) {
+    const textValue = block.getFieldValue('NAME');
+    console.log(textValue);
+    return textValue;
   };
 
-  
+  plutoGenerator.forBlock['custom'] = function(block, generator) {
+    var text_name = block.getFieldValue('NAME');
+    var code = text_name;
+    return code;
+  };
+
+
+  plutoGenerator.forBlock['custommm'] = function(block, generator) {
+    var text_name = block.getFieldValue('NAME');
+    var code = text_name;
+    return code;
+  };
+
+
+  plutoGenerator.forBlock['text_join'] = function(block, generator) {
+    
+    return '';
+  };
 
   plutoGenerator.forBlock['text'] = function(block) {
     const textValue = block.getFieldValue('TEXT');
@@ -89,7 +114,7 @@ const operator = OPERATORS[block.getFieldValue('OP')];
     const nextBlock =
         block.nextConnection && block.nextConnection.targetBlock();
     if (nextBlock && !thisOnly) {
-      return code + ',\n' + plutoGenerator.blockToCode(nextBlock);
+      return code + '\n' + plutoGenerator.blockToCode(nextBlock);
     }
     return code;
   };
@@ -105,7 +130,7 @@ const operator = OPERATORS[block.getFieldValue('OP')];
     console.log(generator.STATEMENT_PREFIX);
     if (generator.STATEMENT_PREFIX) {
       // Automatic prefix insertion is switched off for this block.  Add manually.
-      code += generator.injectId(generator.STATEMENT_PREFIX, block);
+      //code += generator.injectId(generator.STATEMENT_PREFIX, block);
     }
     do {
       conditionCode = generator.valueToCode(block, 'IF' + n, Order.ATOMIC) || 'False';
@@ -133,5 +158,18 @@ const operator = OPERATORS[block.getFieldValue('OP')];
       code += 'else\n' + branchCode + '\n';
     }
     code += 'end if;'
+    console.log(code);
     return code;
   };
+
+
+  plutoGenerator.forBlock['logic_operation'] = function(block, generator) {
+    // Operations 'and', 'or'.
+    const operator = block.getFieldValue('OP');
+    const order = Order.ATOMIC;
+    const argument0 = generator.valueToCode(block, 'A', order).toUpperCase() || 'FALSE';    
+    const argument1 = generator.valueToCode(block, 'B', order).toUpperCase() || 'FALSE';
+    const code = argument0 + ' ' + operator + ' ' + argument1;
+    return [code, order];
+
+  }
